@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
 <title>Nest</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -10,7 +11,8 @@
 <link href="https://fonts.googleapis.com/css?family=Vibur" rel="stylesheet">
 <style>
 body {
-    background-color: pink;
+    background-size: cover;
+    background-image: url("./parallax-bg.jpg") 
    
 }
 
@@ -18,7 +20,7 @@ h1 {
     color: indianred;
     text-align: center;
     font-family: 'Barrio', cursive;
-    font-size: 60px;
+    font-size: 80px;
 
 }
 
@@ -29,22 +31,89 @@ p {
     text-align: center;
 }
 
+
 </style>
 </head>
-<body background = "C:\Users\winnie\Desktop\bg\parallax-bg.jpg" >
+<body>
 
-<h1>My Test.</h1>
+<h1 id=headname ><br>My Test.</h1>
 <p>Press the button you want to select.</p>
 <br>
 <br>
 <div align="center">
 
-    <button type="button" class="btn btn-lg btn-danger"  >SUN</button>
-    <button type="button" class="btn btn-lg btn-warning" >MOON</button>
-    <button type="button" class="btn btn-lg btn-info" >CLOUD</button>
+    <button type="button" class="btn btn-lg btn-danger" style="width:150px" onclick="showsun()" >SUN</button>
+    <button type="button" class="btn btn-lg btn-warning" style="width:150px" onclick="showmoon()" >MOON</button>
+    <button type="button" class="btn btn-lg btn-info" style="width:150px" onclick="showcloud()" >CLOUD</button>
 </div>
-<!--<img src="./bg/cristal_clear_mountain_lake-wallpaper-2560x1440.jpg" width="100%" height="500">-->
 
+<div align="center">
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="./sun.png" id="sun"> 
+    <img src="./moon.png" height="240px" width="240px" id="moon"> 
+    <img src="./cloud.png" height="240px" width="300px" id="cloud">
+</div>
+<!--<div id='MOON' align="center">
+    <br>
+    <br>
+    <br>
+    <br>
+    
+</div>-->
+
+<!--<img src="./bg/cristal_clear_mountain_lake-wallpaper-2560x1440.jpg" width="100%" height="500">-->
+<script>
+    var blink_speed = 700; 
+    var t = setInterval(function () {
+         var ele = document.getElementById('headname'); 
+         ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
+          }, blink_speed);
+
+function showsun() {
+    var showimag = document.getElementById('sun');
+    var showmoons = document.getElementById('moon');
+    var showclouds = document.getElementById('cloud');
+    if (showimag.style.display === 'none'){
+        showimag.style.display = 'block';
+        showmoons.style.display = 'none';
+        showclouds.style.display = 'none';
+    } else{
+        showimag.style.display = 'none';
+    }
+}
+showsun()
+function showmoon() {
+    var showmoons = document.getElementById('moon');
+    var showimag = document.getElementById('sun');
+    var showclouds = document.getElementById('cloud');
+
+    if (showmoons.style.display === 'none'){
+        showmoons.style.display = 'block';
+        showimag.style.display = 'none';
+        showclouds.style.display = 'none';
+    } else{
+        showmoons.style.display = 'none';
+    }
+}
+showmoon()
+function showcloud() {
+    var showmoons = document.getElementById('moon');
+    var showimag = document.getElementById('sun');
+    var showclouds = document.getElementById('cloud');
+
+    if (showclouds.style.display === 'none'){
+        showclouds.style.display = 'block';
+        showimag.style.display = 'none';
+        showmoons.style.display = 'none';
+    } else{
+        showclouds.style.display = 'none';
+    }
+}
+showcloud()
+</script>
 
 </body>
 </html>
